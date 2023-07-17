@@ -21,12 +21,12 @@ public class Main {
         options.merge(capabilities);
 
         // get chrome driver
-//        WebDriver driver = new ChromeDriver();
+        //WebDriver driver = new ChromeDriver();
         WebDriver driver = new ChromeDriver(options);
 
         // signup
-        String name = "abc-def-10";
-        String email = "abc-def-10@gmail.com";
+        String name = "abc-def-15";
+        String email = "abc-def-15@gmail.com";
         String password = "abc-def-123";
         AuthSignUp signUp = new AuthSignUp(name, email);
         AuthPage authPage = new AuthPage(driver);
@@ -54,6 +54,6 @@ public class Main {
         cart.PlaceOrder(card);
 
         // close driver
-//        driver.close();
+        driver.close();
     }
 }

@@ -64,11 +64,17 @@ public class AuthPage {
         driver.findElement(state).sendKeys(signup.getState());
         driver.findElement(city).sendKeys(signup.getCity());
         driver.findElement(zipcode).sendKeys(signup.getZipCode());
-
         Select drpCountry = new Select(driver.findElement(By.name("country")));
         drpCountry.selectByVisibleText("India");
         driver.findElement(clickCreateAccount).click();
-        //TODO:verify ---> signup successfully done
+        String created = "ACCOUNT CREATED!";
+        String expected = driver.findElement(By.cssSelector("#form > div > div > div > h2 > b")).getText();
+        System.out.println(expected);
+        if(created.equals(expected)){
+            System.out.println("Account created successfully!");
+        } else {
+            System.out.println("Ops!");
+        }
     }
 
     public void SignOut() {
@@ -84,6 +90,13 @@ public class AuthPage {
         driver.findElement(loginEmail).sendKeys(login.getEmail());
         driver.findElement(loginPass).sendKeys(login.getPassword());
         driver.findElement(clickLogin).click();
-        //TODO:verify ----> login successfully done
+        String placed = "ORDER PLACED!";
+        String expected = driver.findElement(By.cssSelector("#form > div > div > div > h2 > b")).getText();
+        System.out.println(expected);
+        if(placed.equals(expected)){
+            System.out.println("Order placed successfully!");
+        } else {
+            System.out.println("Ops!");
+        }
     }
 }
